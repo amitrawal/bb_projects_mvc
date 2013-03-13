@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Backbone.js • ProjectsMVC</title>
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+</head>
+<body>
+
+    <h2>JavaScript Projects</h2>
+    <div id="project-view"></div>
+
+    <script type="text/template" id="project-template">
+        <td><a href="<%- site %>" target="_blank"><%= name %></a></td>
+        <td><%= description %></td>
+        <td>
+            <a class="edit" href="#projects/edit/<%= id %>"><i class="icon-pencil"></i></a>&nbsp;
+            <a class='remove' href="#/destroy/<%= id %>"><i class="icon-remove"></i></a>
+        </td>
+    </script>
+    <script type="text/template" id="project-list-template">
+        <input type="text" class="search-query" placeholder="Search">
+        <table>
+            <thead>
+            <tr>
+                <th>Project</th>
+                <th>Description</th>
+                <th><a class='new' href="#projects/new"><i class="icon-plus-sign"></i></a></th>
+            </tr>
+            </thead>
+            <tbody id="list-container">
+            </tbody>
+        </table>
+    </script>
+
+    <script type="text/template" id="project-detail-template">
+        <form name="form">
+
+            <div class="control-group">
+                <label>Name</label>
+                <input type="text" name="name" value="<%= name %>" required>
+                <span class="help-inline">Required</span>
+            </div>
+
+            <div class="control-group">
+                <label>Website</label>
+                <input type="url" name="site" value="<%= site %>" required>
+                <span class="help-inline">Required</span>
+                <span class="help-inline">Not a URL</span>
+            </div>
+
+            <label>Description</label>
+            <textarea name="description"><%= description %></textarea>
+            <br>
+            <a id="cancel" href="#/" class="btn">Cancel</a>
+            <input type="submit" class="btn btn-primary" value="Save" />
+            <!--<button class="btn btn-danger">Delete</button>-->
+        </form>
+    </script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/lib/backbone.localStorage.js"></script>
+    <script src="js/models/project.js"></script>
+    <script src="js/collections/projects.js"></script>
+    <script src="js/views/project.js"></script>
+    <script src="js/views/project_list.js"></script>
+    <script src="js/views/project_detail.js"></script>
+    <script src="js/routers/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
